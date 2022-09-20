@@ -1,0 +1,13 @@
+#titleContainer
+{
+  margin: 3vh 0 4vh 0; /* t r b l */
+  text-align:left;
+}
+
+.crewContainer
+{
+  background-color: #fdfdfd;
+  border: 1px solid #efefef;
+  border-radius: 5px;
+
+}
