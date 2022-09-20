@@ -1,0 +1,15 @@
+.memberContainer
+{
+  border: 0.2em solid white;
+}
+
+.memberContent
+{
+  border-radius: 5px;
+  background-color: rgba(186, 233, 246, 0.1);
+}
+
+.errorColor
+{
+  color: #6000e2;
+}
