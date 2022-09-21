@@ -110,14 +110,14 @@ class CrewList extends React.Component {
       <Container className={(!this.state.isLoadingVisible && this.state.crew.length > 0)?"visible":"visually-hidden"}>
         {this.state.crew.length > 0 &&
           // Iterate on array of 3 to 1 elements
-          this.formatCrewListForDisplay().map((subCrew,index) => {
+          this.formatCrewListForDisplay().map((subCrewList,index) => {
           return(
-            <Row>
+            <Row key={index}>
               {
                 // For each member
-                subCrew.map((member, index) => {
+                subCrewList.map((member, index) => {
                 return(
-                  <Col xs={4} sm={true} className="memberContainer px-sm-3 py-sm-1 py-2">
+                  <Col key={index} xs={4} sm={true} className="memberContainer px-sm-3 py-sm-1 py-2">
                     <Row  className="memberContent px-sm-3 py-sm-3 py-2 shadow-sm rounded ">
                         <Col  sm={2}>
                         <img className="avatarContainer" alt={"Picture of" + {member}} src= {"https://ui-avatars.com/api/?bold=true&color=ffffff&name=" + member + "&size=32&rounded=true&background=53b1b1"}/>
