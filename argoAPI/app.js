@@ -11,14 +11,20 @@ var router = express.Router();
 const routes = require('./routes/API');
 
 // parse application/x-www-form-urlencoded
-var jsonParser       = express.json({type:'application/json'});
-var urlencodedParser = express.urlencoded({ extended:true, type:'application/x-www-form-urlencoded' })
+var jsonParser = express.json({
+  type: 'application/json'
+});
+
+var urlencodedParser = express.urlencoded({
+  extended: true,
+  type: 'application/x-www-form-urlencoded'
+})
 
 // Fix Access Control Allow Credentials
-const corsOptions ={
-   origin:'*',
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
+const corsOptions = {
+  origin: '*',
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
 };
 
 // Middlewares
