@@ -69,7 +69,7 @@ class FormCrew extends React.Component {
   {
     return(
 
-    <Container fluid>
+    <Container fluid className={(this.props.setState)?"visible":"visually-hidden"}>
       <Form onSubmit= {this.addCrewMember} className="formContainer">
         <Form.Group as={Row}>
           <Col  md={10}>

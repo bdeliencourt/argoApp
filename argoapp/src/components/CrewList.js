@@ -39,7 +39,13 @@ class CrewList extends React.Component {
         crew : response.data.map(member => member["name"]),
         isLoadingVisible : false,
       });
+      // Display form
+      this.props.setState(true);
+
+
     }).catch(err =>{
+      // Hide form since we cannot get the crew list
+      this.props.setState(false);
       this.setState({
         isErrorTriggeredOnLoading : true,
         isLoadingVisible : false
