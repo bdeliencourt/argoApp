@@ -37,7 +37,7 @@ class FormCrew extends React.Component {
     // Add crew member to DB
     try {
       // Perform request
-      await axios.post('http://192.168.1.22:5000/add-crew-member',
+      await axios.post("http://" + process.env.REACT_APP_IP_SERVER + "/add-crew-member",
       {
         name: this.state.memberName
       });

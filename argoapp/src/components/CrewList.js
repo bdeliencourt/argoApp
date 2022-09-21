@@ -31,7 +31,7 @@ class CrewList extends React.Component {
   getCrewMemberList()
   {
     // Get members crew list
-    axios.get("http://192.168.1.22:5000/get-crew-member-list/")
+    axios.get("http://" + process.env.REACT_APP_IP_SERVER + "/get-crew-member-list/")
     // On response
     .then((response) => {
       // load member list into crew state and disable loading spinner

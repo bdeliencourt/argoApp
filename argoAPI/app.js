@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv/config');
 
-const port = 5000;
-
 const app = express();
 var router = express.Router();
 
@@ -40,6 +38,6 @@ app.use('/', routes);
 mongoose.connect(process.env.DB_CONNECTION, () => console.log("Connected to DB"));
 
 // Start listening
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+app.listen(process.env.PORT_SERVER, () => {
+  console.log(`Listening on port ${process.env.PORT_SERVER}`)
 })
