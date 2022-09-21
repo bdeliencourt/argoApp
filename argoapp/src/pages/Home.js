@@ -3,8 +3,18 @@ import CrewList from '../components/CrewList';
 import FormCrew from '../components/FormCrew';
 import Container from 'react-bootstrap/Container';
 
+/**
+ * Home page component : contains all components crew list and form
+ *
+ * @component
+ */
 const Home = () => {
 
+  /**
+   * render - render crew list component
+   *
+   * @return {type}  component rendering
+   */
   return (
     <Container>
       <div id="titleContainer" className="display-4 mb-5 mt-n3">

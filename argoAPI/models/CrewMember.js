@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-// Define CrewMember table
+/**
+ * @class Crew
+ */
 const CrewMember = mongoose.Schema({
   name: {
     type: String,

@@ -7,10 +7,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
+/**
+ * Form crew component - allow the user to set crew member name and add it
+ * in the app.
+ *
+ * @component
+ */
 class FormCrew extends React.Component {
 
   constructor(props) {
     super(props);
+    // Initializing
     this.state = {memberName: '', buttonText : "add member", variant : "primary"};
     // Bind func to component
     this.handleUpdateText = this.handleUpdateText.bind(this);
@@ -19,13 +26,18 @@ class FormCrew extends React.Component {
   }
 
 
+  /**
+   * async - request API to add member
+   * Handle user feedback
+   * @param  {type} e event on submit
+   */
   async addCrewMember(e)
   {
     e.preventDefault();
     // Add crew member to DB
     try {
       // Perform request
-      let reqAnswer = await axios.post('http://192.168.1.22:5000/add-crew-member',
+      await axios.post('http://192.168.1.22:5000/add-crew-member',
       {
         name: this.state.memberName
       });
@@ -37,13 +49,22 @@ class FormCrew extends React.Component {
     }
   }
 
-
+  /**
+   * handleUpdateText - Update crew member name
+   *
+   * @param  {type} event input text event
+   */
   handleUpdateText(event)
   {
     // Update memberName according to form input
     this.setState({memberName: event.target.value});
   }
 
+  /**
+   * render - render crew list component
+   *
+   * @return {type}  component rendering
+   */
   render()
   {
     return(

@@ -6,6 +6,11 @@ import Spinner from 'react-bootstrap/Spinner';
 import React from 'react';
 import axios from "axios";
 
+/**
+ * Crew list component - display the crew member names list
+ *
+ * @component
+ */
 class CrewList extends React.Component {
 
   constructor(props)
@@ -18,6 +23,11 @@ class CrewList extends React.Component {
     };
   }
 
+
+  /**
+   * getCrewMemberList - request API for crew member list
+   * Load crew member list and handle user feedback
+   */
   getCrewMemberList()
   {
     // Get members crew list
@@ -37,20 +47,27 @@ class CrewList extends React.Component {
     });
   }
 
-  // Get crew member list on mounted
+  //
+
+  /**
+   * componentDidMount - ask for crew members list on mounted
+   *
+   */
   componentDidMount()
   {
     this.getCrewMemberList();
   }
 
-  // Format crew list, return array of 3 elements array
+  /**
+   * formatCrewListForDisplay - format crew list array
+   * Slice crew member array into arrays of 3 elements
+   * last array could be < 3 elements if state.crew.length is not multiple of 3)
+   * @return {type}  return array of 3 elements array
+   */
   formatCrewListForDisplay()
   {
     let formatedList = [];
 
-    // Slice crew member array into arrays of 3 elements
-    // last array could be < 3 elements
-    // if state.crew.length is not multiple of 3)
     for(let i = 0; i < this.state.crew.length; i += 3)
     {
       formatedList.push(this.state.crew.slice(i, i+3));
@@ -59,6 +76,12 @@ class CrewList extends React.Component {
     return formatedList;
   }
 
+
+  /**
+   * render - render crew list component
+   *
+   * @return {type}  component rendering
+   */
   render()
   {
     return(

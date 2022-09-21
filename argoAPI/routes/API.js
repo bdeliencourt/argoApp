@@ -3,6 +3,11 @@ const router = express.Router();
 const Crew = require("../models/CrewMember");
 
 
+
+/**
+ * GET REQUEST : Retrieve all the crew members saved in the app
+ * Return JSON containing all names
+ */
 router.get('/get-crew-member-list', async (req, res) => {
 
   try {
@@ -16,6 +21,12 @@ router.get('/get-crew-member-list', async (req, res) => {
 
 });
 
+
+
+/**
+ * POST REQUEST : Add the crew member in the app
+ * Insert input in crews table
+ */
 router.post('/add-crew-member', (req, res) => {
 
   // Create input in Crew Table
