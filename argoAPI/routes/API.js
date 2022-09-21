@@ -20,15 +20,17 @@ router.post('/add-crew-member', (req, res) =>{
 
   // Create input in Crew Table
   const crewMember = new Crew({
-    name: req.body.name
+    nsame : req.body.name
   });
 
   // Insert input
   crewMember.save()
   .then(data => {
+    res.status(200);
     res.send(data);
   })
   .catch(err =>{
+    res.status(500);
     res.send(err);
   });
 });

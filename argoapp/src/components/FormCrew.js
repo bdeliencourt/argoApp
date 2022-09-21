@@ -11,7 +11,7 @@ class FormCrew extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {memberName: ''};
+    this.state = {memberName: '', buttonText : "add member", variant : "primary"};
     // Bind func to component
     this.handleUpdateText = this.handleUpdateText.bind(this);
     this.addCrewMember = this.addCrewMember.bind(this);
@@ -19,13 +19,22 @@ class FormCrew extends React.Component {
   }
 
 
-  async addCrewMember()
+  async addCrewMember(e)
   {
+    e.preventDefault();
     // Add crew member to DB
-    let res = await axios.post('http://192.168.1.22:5000/add-crew-member',
-    {
-      name: this.state.memberName
-    });
+    try {
+      // Perform request
+      let reqAnswer = await axios.post('http://192.168.1.22:5000/add-crew-member',
+      {
+        name: this.state.memberName
+      });
+      // Refresh app
+      window.location.reload(false);
+    // On request error, update uploading button
+    } catch (e) {
+      this.setState({buttonText: "retry", variant: "danger"});
+    }
   }
 
 
@@ -48,7 +57,7 @@ class FormCrew extends React.Component {
 
           <Col md={2}  className="py-3 py-sm-0">
           <div className="d-grid">
-            <Button type="submit" className="button submitButton">add member</Button>
+            <Button type="submit" className="button submitButton" variant={this.state.variant} >{this.state.buttonText}</Button>
             </div>
 
           </Col>
